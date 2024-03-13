@@ -14,19 +14,22 @@ export class AppComponent {
   currentPage=1;
 
   constructor(private userData: UserDataService) {
-    this.userData.users().subscribe(data =>{ this.users = data;
-      this.loader=false
-    // console.log(data);
-    this.users.sort((a: any, b: any) => {
-      if (a.emp_code < b.emp_code) {
-        return -1;
-      }
-      else {
-        return 1;
-      }
-      return 0;
-    }); // Sorting users by emp_code in ascending order
-  })
+   setTimeout(() => {
+      this.userData.users().subscribe(data => {
+        this.users = data;
+        this.loader = false
+        // console.log(data);
+        this.users.sort((a: any, b: any) => {
+          if (a.emp_code < b.emp_code) {
+            return -1;
+          }
+          else {
+            return 1;
+          }
+          return 0;
+        });
+      })
+    }, 1000);
   };
 
   get paginatedData(){
