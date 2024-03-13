@@ -1,0 +1,37 @@
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+        <li class="page-item">
+            <button class="page-link" (click)="pageClicked(currentPage - 1)"
+                [disabled]="currentPage === 1">Previous</button>
+        </li>
+        <li *ngFor="let page of pages" class="page-item" [ngClass]="{active: page === currentPage}">
+            <button class="page-link" (click)="pageClicked(page)">{{ page }}</button>
+        </li>
+        <li class="page-item">
+            <button class="page-link" (click)="pageClicked(currentPage + 1)"
+                [disabled]="currentPage === pages.length">Next</button>
+        </li>
+    </ul>
+</nav>
+
+
+
+
+<!-- 
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+        <li class="page-item">
+            <a class="page-link" (click)="pageClicked(currentPage - 1)" href="#" [disabled]="currentPage === 1">Previous</a>
+        </li>
+        <li (click)="pageClicked(page)" *ngFor="let page of pages" class="page-item"
+            [ngClass]="{active: page == currentPage}">
+            <a class="page-link" href="#">
+                {{ page }}
+            </a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" (click)="pageClicked(currentPage + 1)" href="#" [disabled]="currentPage === pages.length">Next</a>
+        </li>
+    </ul>
+</nav> -->
+
