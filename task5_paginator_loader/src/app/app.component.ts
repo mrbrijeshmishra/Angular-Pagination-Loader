@@ -21,7 +21,7 @@ export class AppComponent {
       if (a.emp_code < b.emp_code) {
         return -1;
       }
-      if (a.emp_code > b.emp_code) {
+      else {
         return 1;
       }
       return 0;
